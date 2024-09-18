@@ -1,0 +1,212 @@
+/* Reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-bg: #1a1c20;         /* Dark background */
+    --container-bg: #f0f0f0;       /* Bright, contrasting container background */
+    --task-bg: #393e46;
+    --highlight: #ff5722;          /* Vibrant highlight color */
+    --accent: #222831;
+    --button-bg: #00adb5;
+    --progress-bg: #232931;
+    --progress-fill: #00e676;
+    --input-bg: #393e46;
+    --input-text: #eeeeee;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --glass: rgba(255, 255, 255, 0.1);
+    --text-color: #222831;         /* Dark text color for contrast */
+    --border-color: #00adb5;       /* Accent border for container */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /* background: linear-gradient(135deg, #1a1c20, #393e46); */
+    background-image: url('https://images.pexels.com/photos/5717479/pexels-photo-5717479.jpeg?cs=srgb&dl=pexels-polina-kovaleva-5717479.jpg&fm=jpg');
+    background-size: cover;  /* Ensures the image covers the whole viewport */
+    background-position: center;  /* Centers the background image */
+    background-repeat: no-repeat;  /* Prevents the image from repeating */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+}
+
+/* Main container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 600px;
+    width: 100%;
+    padding: 40px;
+    background: var(--container-bg);  
+    /* background-image: url('https://images.pexels.com/photos/5717411/pexels-photo-5717411.jpeg?auto=compress&cs=tinysrgb&w=400');
+    background-size: cover;
+    background-position: center;  
+    background-repeat: no-repeat;   */
+    border-radius: 20px;
+    border: 3px solid var(--border-color);  /* Vibrant border color */
+    box-shadow: 0 8px 30px var(--shadow);
+}
+
+/* Header and progress bar */
+.stats-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: var(--task-bg);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px var(--shadow);
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--highlight);  /* Dark text on light container */
+}
+
+p {
+    font-size: 1.1rem;
+    color: var(--highlight);
+    font-weight: 500;
+}
+
+/* Progress Bar */
+#progressBar {
+    width: 100%;
+    height: 10px;
+    background-color: var(--progress-bg);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#progress {
+    height: 10px;
+    width: 0;
+    background-color: var(--progress-fill);
+    transition: width 0.3s ease-in-out;
+}
+
+/* Task stats */
+#numbers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background: var(--highlight);   /* Highlighted task numbers */
+    color: var(--container-bg);     /* White text on vibrant background */
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+/* Task input form */
+form {
+    display: flex;
+    width: 100%;
+    margin-bottom: 30px;
+    gap: 15px;
+}
+
+input {
+    flex-grow: 1;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    font-size: 1rem;
+}
+
+button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--button-bg);
+    color: var(--container-bg);  /* White button text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px var(--shadow);
+    border: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #00e676;
+}
+
+/* Task list */
+#task-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.taskItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: var(--task-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow);
+    transition: transform 0.2s ease-in-out;
+}
+
+.taskItem:hover {
+    transform: scale(1.02);
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.task p {
+    color: var(--input-text);
+    font-size: 1.2rem;
+}
+
+.task.completed p {
+    text-decoration: line-through;
+    color: var(--highlight);
+    opacity: 0.6;
+}
+
+/* Icons for edit and delete */
+.icons img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.icons img:hover {
+    opacity: 1;
+}
